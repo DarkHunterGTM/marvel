@@ -1,0 +1,103 @@
+<meta charset="utf-8">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>App Principal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container" style="margin-top: 50px;" id="app">
+        <nav class="navbar navbar-expand-lg navbar-ligth" style="background-color: orange;">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li>
+                        <router-link class="nav-link" to="/">Inicio</router-link>
+                    </li>
+                    <li>
+                        <router-link class="nav-link" to="contacto">¿Quienes Somos?</router-link>
+                    </li>
+                    <li>
+                        <router-link class="nav-link" to="vengadores">Vengadores</router-link>
+                    </li>
+                    <li>
+                        <router-link class="nav-link" to="gemas">Gemas del Infinito</router-link>
+                    </li>
+                    <li>
+                        <router-link class="nav-link" to="villanos">Villanos</router-link>
+                    </li>
+                    <li>
+                        <router-link class="nav-link" to="eventos">Contacto</router-link>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+        <div class="text-center" style="margin-top: 20px;">
+            <router-view></router-view>
+        </div>
+    </div>
+
+</body>
+<!-- Vistas -->
+<script src="vistas/vengadores.vue.js"></script>
+<script src="vistas/villanos.vue.js"></script>
+<script src="vistas/inicio.vue.js"></script>
+<script src="vistas/contacto.vue.js"></script>
+<script src="vistas/gemas.vue.js"></script>
+<script src="vistas/directivas.vue.js"></script>
+<script src="vistas/componente.vue.js"></script>
+<script src="vistas/eventos.vue.js"></script>
+<script src="vistas/alumnos.vue.js"></script>
+<script src="vistas/instructores.vue.js"></script>
+
+<!--Componentes-->
+<script src="componentes/formulario.js"></script>
+<script src="componentes/button-counter.js"></script>
+<script src="componentes/crear_vengador.js"></script>
+<script src="componentes/cambiar_vengador.js"></script>
+<script src="componentes/crear_gema.js"></script>
+<script src="componentes/crear_villano.js"></script>
+<script src="componentes/cambiar_villano.js"></script>
+<script src="componentes/cambiar_gema.js"></script>
+
+
+<script type="text/javascript">
+    Vue.use(VueRouter);
+
+    var routes = [
+        { path: '/', component: Inicio },
+        { path: '/contacto', component: Contacto },
+        { path: '/gemas', component: Gemas , name: "Gemas"},
+        { path: '/villanos', component: Villanos, name: "Villanos" },
+        { path: '/vengadores', component: Vengadores },
+        { path: '/directivas', component: Directivas },
+        { path: '/componente', component: Componente },
+        { path: '/eventos', component: Eventos },
+        { path: '/alumnos', component: Alumnos, name: "Alumnos" },
+        { path: '/vengadores', component: Vengadores, name: "Vengadores" },
+        { path: '/crear_vengador', component: CrearVengador, name:"crear_vengador" },
+        { path: '/cambiar_vengador/:id', component: CambiarVengador, name:"cambiar_vengador" },
+        { path: '/instructores', component: Instructores, name: "Instructores" },
+        { path: '/crear_gema', component: CrearGema, name:"crear_gema" },
+        { path: '/cambiar_gema/:id', component: CambiarGema, name:"cambiar_gema" },
+          { path: '/crear_villano', component: CrearVillano, name:"crear_villano" },
+          { path: '/cambiar_villano', component: CambiarVillano, name:"cambiar_villano" }
+    ];
+
+    var router = new VueRouter({
+        routes: routes,
+    });
+
+    var app = new Vue({
+        el: '#app',
+        router: router
+    });
+</script>
+
+</html>
